@@ -6,10 +6,16 @@
 # Purpose: The modification date of footage should not change when it is renamed. This program should give the original order of footage files after they have been renamed. Use this program in conjunction with the Premiere file relinker program.
 
 import os
+import tkFileDialog
+import Tkinter
 
-path = "/Volumes/LaCie H/VIDEO PROJECTS/2017_PHAN/FOOTAGE" # input directory, '.' for current
-csv_name = "Output_1.csv" # name of output file
-file_type = ".mov"  # type of file to filter
+root = Tkinter.Tk()
+root.withdraw() #use to hide tkinter window
+
+# path = "/Users/danbonness/Desktop/Saved Files/SD Card/VIDEO/Ursinus" # input directory, '.' for current
+
+path = tkFileDialog.askdirectory() # input directory
+csv_name = "Output_1.csv" # name of input csv file
 append_fn = True    # append list to existing file, if False write new file
 
 line_count = 0 # number of lines
@@ -32,8 +38,8 @@ f = sorted(f, key=lambda x: x[1])   # sort files by last modification date (typi
 output_file = open("Output.csv","w")    # open the output file
 
 for x in range(len(f)): # for every file in f
-       
-    if(file_type in f[x][0]):   # if it is the correct file type
+    
+    if(not f[x][0].startswith(".")):   # if it is the correct file type
         if (write_count > 0): output_file.write("\n")   # if it's not the first line, start a new line
         if(append_fn):  # if appending to previous file
             if(write_count < line_count): # if x < the length of the previous file
