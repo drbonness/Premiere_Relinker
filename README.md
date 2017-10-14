@@ -32,7 +32,7 @@ This file takes a 2-Column csv file as input. It searches through an input file 
 
 If using input files where:
     - XML file
-        - Converted Premiere Pro Project File
+    - Converted Premiere Pro Project File
     - CSV file
-        - Column 1 = Original File Names
-        - Column 2 = New File Names
+    - Column 1 = Original File Names
+    - Column 2 = New File Names
