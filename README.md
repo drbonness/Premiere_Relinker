@@ -21,6 +21,7 @@ XML → Premiere Pro File
 This file allows you to quickly extract all of the file names in a given directory (excluding hidden files). Files are ordered by modification date, because the modification date of a file remains unchanged when a file name is changed.
 
 If an input file (typically a previous output) is specified, file names will be appended to the input file. This creates a csv output file where:
+
     - Column 1 = Original File Names (Input)
     - Column 2 = New File Names
     
@@ -28,9 +29,11 @@ If no input file is specified, the program will produce a 1-Column CSV file cont
 
 # file_relinker.py
 
-This file takes a 2-Column csv file as input. It searches through an input file (xml,txt,etc...) and replaces Text from Column 1 with Text from Column 2.
+This file takes a 2-Column CSV file as input. It searches through an input file (xml,txt,etc...) and replaces Text from Column 1 with Text from Column 2.
 
-If using input files where:
+When using the reccomended input, it will relink all of the media in a Premiere Pro project file, replacing original file names with new file names.
+
+Reccomended Input:
     - XML file
     - Converted Premiere Pro Project File
     - CSV file
