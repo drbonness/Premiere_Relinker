@@ -15,7 +15,7 @@ root.withdraw() #use to hide tkinter window
 # path = "/Users/danbonness/Desktop/Saved Files/SD Card/VIDEO/Ursinus" # input directory, '.' for current
 
 path = tkFileDialog.askdirectory() # input directory
-csv_name = "Output_1.csv" # name of input csv file
+csv_name = "Rapid_Cut_FileNames.csv" # name of input csv file
 append_fn = True    # append list to existing file, if False write new file
 
 line_count = 0 # number of lines
@@ -39,7 +39,7 @@ output_file = open("Output.csv","w")    # open the output file
 
 for x in range(len(f)): # for every file in f
     
-    if(not f[x][0].startswith(".")):   # if it is the correct file type
+    if(not f[x][0].startswith(".") and "." in f[x][0]):   # if it is the correct file type
         if (write_count > 0): output_file.write("\n")   # if it's not the first line, start a new line
         if(append_fn):  # if appending to previous file
             if(write_count < line_count): # if x < the length of the previous file
